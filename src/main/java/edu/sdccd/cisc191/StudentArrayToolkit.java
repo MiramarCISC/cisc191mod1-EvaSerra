@@ -22,7 +22,9 @@ public class StudentArrayToolkit {
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
         // TODO: defensive copy + Arrays.sort with Comparator lambda
-        throw new UnsupportedOperationException("Not implemented yet");
+        Student[] arrayCopy = Arrays.stream(Arrays.copyOf(students, students.length)).sorted(Comparator.comparingDouble(Student::getGpa)
+                .thenComparing(Student::getName)).toArray(Student[]::new);
+        return arrayCopy;
     }
 
     /**
@@ -31,7 +33,12 @@ public class StudentArrayToolkit {
      */
     public static Student findByIdLinear(Student[] students, int id) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        for(Student i : students){
+            if(i.getId() == id){
+                return i;
+            }
+        }
+        return null;
     }
 
     /**
@@ -42,6 +49,17 @@ public class StudentArrayToolkit {
      */
     public static Student[] topNByGpa(Student[] students, int n) {
         // TODO: validate n, sort copy, return first n in a new array
-        throw new UnsupportedOperationException("Not implemented yet");
+//        Student[] sortedCopy = copySortedByGpaDesc(students);
+//        return Arrays.copyOf(sortedCopy, n);
+        if (n < 0) {
+            throw new IllegalArgumentException("n should be greater than 0");
+        } else if (n == 0) {
+            return new Student[0];
+        } else if (n >= students.length) {
+            return copySortedByGpaDesc(students);
+        }  else {
+            Student[] sortedCopy = copySortedByGpaDesc(students);
+            return Arrays.copyOf(sortedCopy, n);
+        }
     }
 }

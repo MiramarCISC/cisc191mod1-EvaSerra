@@ -1,5 +1,7 @@
 package edu.sdccd.cisc191;
 
+import org.xml.sax.ext.LexicalHandler;
+
 import java.util.Arrays;
 
 /**
@@ -18,7 +20,15 @@ public class IntArrayToolkit {
      */
     public static int sum(int[] a) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null)  {
+            throw new IllegalArgumentException("Array is null");
+        } else {
+            int sum = 0;
+            for (int i : a) {
+                sum += i;
+            }
+            return sum;
+        }
     }
 
     /**
@@ -27,7 +37,17 @@ public class IntArrayToolkit {
      */
     public static int max(int[] a) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null || a.length == 0) {
+            throw new IllegalArgumentException("Array is null");
+        } else {
+            int max = 0;
+            for (int i : a) {
+                if(i > max){
+                    max = i;
+                }
+            }
+            return max;
+        }
     }
 
     /**
@@ -36,7 +56,16 @@ public class IntArrayToolkit {
      */
     public static int indexOf(int[] a, int target) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null) {
+            throw new IllegalArgumentException("Array is null");
+        } else {
+            for (int i : a) {
+                if (i == target) {
+                    return i;
+                }
+            }
+            return -1;
+        }
     }
 
     /**
@@ -46,6 +75,13 @@ public class IntArrayToolkit {
      */
     public static int[] copySortedAscending(int[] a) {
         // TODO: implement (hint: defensive copy + Arrays.sort)
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null) {
+            throw new IllegalArgumentException("Array is null");
+        } else {
+            int[] result = new int[a.length];
+            System.arraycopy(a, 0, result, 0, a.length);
+            Arrays.sort(result);
+            return result;
+        }
     }
 }
