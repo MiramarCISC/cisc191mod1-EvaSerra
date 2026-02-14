@@ -40,11 +40,11 @@ public class IntArrayToolkit {
         if (a == null || a.length == 0) {
             throw new IllegalArgumentException("Array is null");
         } else {
-            int max = 0;
+            int max = a[0];
             for (int i : a) {
-                if(i > max){
-                    max = i;
-                }
+                    if (i > max) {
+                        max = i;
+                    }
             }
             return max;
         }
@@ -59,10 +59,12 @@ public class IntArrayToolkit {
         if (a == null) {
             throw new IllegalArgumentException("Array is null");
         } else {
+            int index = 0;
             for (int i : a) {
                 if (i == target) {
-                    return i;
+                    return index;
                 }
+                index++;
             }
             return -1;
         }

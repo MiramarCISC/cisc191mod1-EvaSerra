@@ -16,7 +16,7 @@ public class Main {
         // - findByIdLinear with existing and non-existing id
         Student[] students = new Student[]{
                 new Student("Nishka",  4.0, 10),
-                new Student("Bruce",   2.7, 47),
+                new Student("    ",   2.7, 47),
                 new Student("Tony",    3.3, 5),
                 new Student("Vanesa", 3.7, 16),
                 new Student("Danny",    0.4, 23),

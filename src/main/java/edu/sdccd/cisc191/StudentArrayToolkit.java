@@ -22,7 +22,8 @@ public class StudentArrayToolkit {
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
         // TODO: defensive copy + Arrays.sort with Comparator lambda
-        Student[] arrayCopy = Arrays.stream(Arrays.copyOf(students, students.length)).sorted(Comparator.comparingDouble(Student::getGpa)
+        Student[] arrayCopy = Arrays.stream(Arrays.copyOf(students, students.length))
+                .sorted(Comparator.comparingDouble(Student::getGpa).reversed()
                 .thenComparing(Student::getName)).toArray(Student[]::new);
         return arrayCopy;
     }

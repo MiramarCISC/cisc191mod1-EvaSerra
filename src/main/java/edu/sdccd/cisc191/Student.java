@@ -21,7 +21,7 @@ public class Student {
 
     public Student(String name, double gpa, int id) {
         // TODO: validate and assign fields
-        if ((name == null || name.isEmpty()) || !(gpa >= 0.0 && gpa <= 4.0) || id <= 0){
+        if ((name == null || name.isBlank()) || !(gpa >= 0.0 && gpa <= 4.0) || id <= 0){
             throw new IllegalArgumentException("Invalid Values");
         }
         this.name = name;
