@@ -37,7 +37,7 @@ public class IntArrayToolkit {
      */
     public static int max(int[] a) {
         // TODO: implement
-        if (a == null || a.length == 0) {
+        if (a == null || a.length == 0) { // method runs correct check, could add to message "Array is null or empty" for clarity
             throw new IllegalArgumentException("Array is null");
         } else {
             int max = a[0];
