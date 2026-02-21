@@ -22,7 +22,7 @@ public class Student {
     public Student(String name, double gpa, int id) {
         // TODO: validate and assign fields
         if ((name == null || name.isBlank()) || !(gpa >= 0.0 && gpa <= 4.0) || id <= 0){
-            throw new IllegalArgumentException("Invalid Values");
+            throw new IllegalArgumentException("Invalid Values"); // maybe provide more specific message like "name can't be null/blank" or "gpa must range between 0-4", helps whoever is debugging figure out what is wrong
         }
         this.name = name;
         this.gpa = gpa;
